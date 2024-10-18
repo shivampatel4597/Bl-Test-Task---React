@@ -9,7 +9,7 @@ import { useTheme } from '@mui/material/styles';
 
 const Navbar = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check if screen is mobile size
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const NavBox = styled(Box)({
     width: '100%',
@@ -23,7 +23,7 @@ const Navbar = () => {
   const useStyles = {
     left: {
       height: '100%',
-      width: isMobile ? '60%' : '40%', // Adjust width for mobile
+      width: isMobile ? '60%' : '40%', 
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -34,7 +34,7 @@ const Navbar = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      gap: isMobile ? '20px' : '100px', // Adjust gap for mobile
+      gap: isMobile ? '20px' : '100px', 
       paddingRight: isMobile ? '10px' : '100px',
     },
     headTypo: {
@@ -51,7 +51,7 @@ const Navbar = () => {
     },
     icon: {
       color: 'gray',
-      fontSize: isMobile ? '16px' : '20px', // Adjust icon size for mobile
+      fontSize: isMobile ? '16px' : '20px', 
     },
   };
 
@@ -68,7 +68,7 @@ const Navbar = () => {
         </Box>
 
         <Box sx={useStyles.right}>
-          {!isMobile && ( // Hide search bar on mobile
+          {!isMobile && (
             <TextField
               variant="outlined"
               placeholder="Search..."

@@ -17,7 +17,7 @@ background-color: #f0f0f0
 
 `;
 
-// Box for the chart
+
 const ChartBox = styled.div`
   width: 100%;
   max-width: 340px;  
@@ -32,10 +32,7 @@ const ChartBox = styled.div`
   align-items: center;
 `;
 
-// Main container for charts
 
-
-// Flexbox for line cases (optional additional data display)
 const LineCase = styled.div`
   width: 80%;
   margin-top:5px;
@@ -57,7 +54,7 @@ const CovidDeathChart = () => {
         const response = await axios.get('https://covid-193.p.rapidapi.com/statistics', {
           headers: {
             'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c' // Replace with your actual API key
+            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c' 
           }
         });
 
@@ -78,8 +75,8 @@ const CovidDeathChart = () => {
         console.log('Max Death Country:', maxDeathCountry, 'Count:', maxDeathCount);
 
         // Set state for min and max death counts only
-        setDeathData([minDeathCount, maxDeathCount]); // Only minimum and maximum death counts
-        setCountryData([minDeathCountry, maxDeathCountry]); // Country names for x-axis
+        setDeathData([minDeathCount, maxDeathCount]);
+        setCountryData([minDeathCountry, maxDeathCountry]);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError('Failed to fetch data. Please try again later.');

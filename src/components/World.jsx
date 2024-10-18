@@ -51,11 +51,11 @@ export default function World() {
   const [covidData, setCovidData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [totalCases, setTotalCases] = useState(0); // State to hold total cases
+  const [totalCases, setTotalCases] = useState(0);
   const [pieData, setPieData] = useState([
-    { value: 0, label: 'Death', color: 'red' },      // Death slice with red color
-    { value: 0, label: 'Recovered', color: 'green' }, // Recovered slice with green color
-    { value: 0, label: 'Active', color: 'blue' },     // Active slice with blue color
+    { value: 0, label: 'Death', color: 'red' },     
+    { value: 0, label: 'Recovered', color: 'green' }, 
+    { value: 0, label: 'Active', color: 'blue' },     
   ]);
 
   // Fetch COVID data from API
@@ -65,7 +65,7 @@ export default function World() {
         const response = await axios.get('https://covid-193.p.rapidapi.com/statistics', {
           headers: {
             'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c', // Replace with your actual API key
+            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c',
           },
         });
 
@@ -79,7 +79,7 @@ export default function World() {
 
         setCovidData(formattedData);
 
-        // Calculate total cases (deaths, recoveries, active)
+        // Calculate total cases deaths, recoveries, active
         const totalCases = formattedData.reduce(
           (acc, curr) => ({
             deaths: acc.deaths + curr.deaths,

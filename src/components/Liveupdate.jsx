@@ -3,11 +3,11 @@ import axios from 'axios';
 import { Box, Typography, IconButton, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import userImg from "../assets/user.jpeg"; // Assuming user.jpeg exists in assets folder
+import userImg from "../assets/user.jpeg"; 
 
 const Liveupdate = () => {
-  const [caseUpdates, setCaseUpdates] = useState([]); // State to hold case data
-  const [loading, setLoading] = useState(true); // State to track loading status
+  const [caseUpdates, setCaseUpdates] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchCovidData = async () => {
@@ -15,20 +15,20 @@ const Liveupdate = () => {
         const response = await axios.get('https://covid-193.p.rapidapi.com/statistics', {
           headers: {
             'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c', // Replace with your actual API key
+            'x-rapidapi-key': 'afc12cff54msh7af1df5cb618edap1d1696jsn9081bd49cb3c', 
           },
         });
-        const data = response.data.response.slice(0, 8); // Limit to 8 items for display
-        setCaseUpdates(data); // Set the case updates with the response data
-        setLoading(false); // Set loading to false once data is fetched
+        const data = response.data.response.slice(0, 8); 
+        setCaseUpdates(data); 
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false); 
       }
     };
 
-    fetchCovidData(); // Call the API on component mount
-  }, []); // Empty dependency array means this effect runs once on mount
+    fetchCovidData();
+  }, []); 
 
   const cardStyle = {
     mainBox: {
